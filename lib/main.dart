@@ -1,5 +1,7 @@
 import 'package:challenge_ubertrack/pages/home_page/home_page.dart';
+import 'package:challenge_ubertrack/pages/intro/intro_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'core/providers.dart';
 
@@ -12,10 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Providers(
-      child: MaterialApp(
+      child: GetMaterialApp(
+          navigatorKey: Get.key,
           debugShowCheckedModeBanner: false,
-          // theme: ThemeData(primarySwatch: Colors.blue),
-          home: HomePage()),
+          theme: ThemeData(fontFamily: 'Hubballi'),
+          home: IntroPage()),
     );
   }
 }

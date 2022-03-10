@@ -1,18 +1,28 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class IntroPage extends StatelessWidget {
+class IntroPage extends StatefulWidget {
+  @override
+  _IntroPageState createState() => _IntroPageState();
+}
+
+class _IntroPageState extends State<IntroPage> {
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
+      Provider.of<IntroViewModel>(context, listen: false).loadPage();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: Text('Star Wars'),
-        centerTitle: true,
-      ),
       body: ResponsiveBody(
         child: Stack(
           alignment: Alignment.center,
