@@ -1,4 +1,4 @@
-import 'package:challenge_ubertrack/pages/home_view_model.dart';
+import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +14,8 @@ class _ProvidersState extends State<Providers> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
-      ChangeNotifierProvider<HomeViewModel>(
-        create: (_) => HomeViewModel(),
+      ChangeNotifierProvider<IntroViewModel>(
+        create: (_) => IntroViewModel(),
       ),
     ], child: widget.child);
   }
