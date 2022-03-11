@@ -1,9 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:challenge_ubertrack/core/base_model.dart';
-import 'package:challenge_ubertrack/pages/home_page/home_page_view_model.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'home_page_view_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

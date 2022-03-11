@@ -22,6 +22,7 @@ class ApiBaseHelper {
             Uri.parse(baseUrl + url),
           )
           .timeout(Duration(seconds: 30));
+
       responseJson = _returnResponse(response, context);
     } on SocketException {
       throw Exception('No Internet connection');

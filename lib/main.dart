@@ -1,9 +1,8 @@
-import 'package:challenge_ubertrack/pages/home_page/home_page.dart';
-import 'package:challenge_ubertrack/pages/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'core/providers.dart';
+import 'pages/home/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
           navigatorKey: Get.key,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(fontFamily: 'Hubballi'),
-          home: IntroPage()),
+          home: HomePage()),
     );
   }
 }

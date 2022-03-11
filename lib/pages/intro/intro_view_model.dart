@@ -1,5 +1,5 @@
 import 'package:challenge_ubertrack/core/base_model.dart';
-import 'package:challenge_ubertrack/pages/home_page/home_page.dart';
+import 'package:challenge_ubertrack/pages/home/home_page.dart';
 import 'package:get/get.dart';
 
 class IntroViewModel extends BaseModel {

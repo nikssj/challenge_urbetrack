@@ -39,6 +39,13 @@ class _IntroPageState extends State<IntroPage> {
                 height: _size.height * 0.3,
               ),
             ),
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * 0.3,
+              child: FadeInUp(
+                child: Text('Desarrollado por\nhttp://nikssj.dev',
+                    style: TextStyle(color: Colors.white, fontSize: 36)),
+              ),
+            )
           ],
         ),
       ),
