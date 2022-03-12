@@ -1,7 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:challenge_ubertrack/core/base_model.dart';
+import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_page.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'home_page_view_model.dart';
@@ -82,7 +84,8 @@ Widget starWarsPeople(BuildContext context) {
                   selectedTileColor: Colors.yellow,
                   hoverColor: Colors.yellow,
                   onTap: () {
-                    print('hola');
+                    Get.to(
+                        () => InvadersDetailsPage(_homeVm.peopleList![index]));
                   },
                   title: Text(_homeVm.peopleList![index].name!,
                       style: TextStyle(

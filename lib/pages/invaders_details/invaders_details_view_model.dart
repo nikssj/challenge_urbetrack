@@ -29,12 +29,25 @@ class InvadersDetailsViewModel extends BaseModel {
 
   set homeWorld(Planet value) => this._homeWorld = value;
 
+  List<String> _vehicleFutures = [];
+
+  get vehicleFutures => this._vehicleFutures;
+
+  set vehicleFutures(value) => this._vehicleFutures = value;
+
   Future<List<Vehicle>?> fetchVehicles(
       BuildContext context, List<String>? vehicles) async {
-    List<String> _vehicleFutures = [];
+    addVehiclesFromPerson();
 
-    for (var vehicle in vehicles!) {
-      _vehicleFutures.add(vehicle);
+    final List<Future> futureList = [];
+
+    for (var vehicleFutures in vehicleFutures)
+      final response = Future.wait(_vehicleFutures as List<Future>);
+  }
+
+  void addVehiclesFromPerson() {
+    for (var vehicle in this.vehicleList) {
+      vehicleFutures.add(vehicle);
     }
   }
 
