@@ -20,36 +20,33 @@ class StarWarsRepository {
     return peopleList;
   }
 
-  Future<List<Planet>?> getPlanet(
-      BuildContext context, String idPlaneta) async {
-    final response = await _helper.get('/planets/' + idPlaneta, context);
+  Future<Planet> getPlanet(BuildContext context, String idPlanet) async {
+    final response = await _helper.get('/planets/' + idPlanet, context);
 
-    List<Planet>? planetList;
+    Planet planet;
 
-    planetList = Planet.fromJson(response) as List<Planet>?;
+    planet = Planet.fromJson(response);
 
-    return planetList;
+    return planet;
   }
 
-  Future<List<Vehicle>?> getVehicle(
-      BuildContext context, String idVehicle) async {
+  Future<Vehicle> getVehicle(BuildContext context, String idVehicle) async {
     final response = await _helper.get('/vehicles/' + idVehicle, context);
 
-    List<Vehicle>? vehicleList;
+    Vehicle vehicle;
 
-    vehicleList = Vehicle.fromJson(response) as List<Vehicle>?;
+    vehicle = Vehicle.fromJson(response);
 
-    return vehicleList;
+    return vehicle;
   }
 
-  Future<List<Starship>?> getStarship(
-      BuildContext context, String idStarship) async {
+  Future<Starship> getStarship(BuildContext context, String idStarship) async {
     final response = await _helper.get('/starships/' + idStarship, context);
 
-    List<Starship>? starshipList;
+    Starship starship;
 
-    starshipList = Starship.fromJson(response) as List<Starship>?;
+    starship = Starship.fromJson(response);
 
-    return starshipList;
+    return starship;
   }
 }

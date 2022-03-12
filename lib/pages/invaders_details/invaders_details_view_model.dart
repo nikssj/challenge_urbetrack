@@ -13,45 +13,90 @@ class InvadersDetailsViewModel extends BaseModel {
 
   List<Vehicle> get vehicleList => this._vehicleList;
 
-  set vehicleList(List<Vehicle> value) => this._vehicleList = value;
+  set setVehicleList(List<Vehicle> value) {
+    vehicleList.addAll(value);
+  }
 
   //Starship List
   List<Starship> _starshipList = [];
 
   List<Starship> get starshipList => this._starshipList;
 
-  set starshipList(List<Starship> value) => this._starshipList = value;
+  set setStarshipList(List<Starship> value) {
+    starshipList.addAll(value);
+  }
 
   //Homeworld
   Planet _homeWorld = Planet();
 
   Planet get homeWorld => this._homeWorld;
 
-  set homeWorld(Planet value) => this._homeWorld = value;
-
-  List<String> _vehicleFutures = [];
-
-  get vehicleFutures => this._vehicleFutures;
-
-  set vehicleFutures(value) => this._vehicleFutures = value;
-
-  Future<List<Vehicle>?> fetchVehicles(
-      BuildContext context, List<String>? vehicles) async {
-    addVehiclesFromPerson();
-
-    final List<Future> futureList = [];
-
-    for (var vehicleFutures in vehicleFutures)
-      final response = Future.wait(_vehicleFutures as List<Future>);
+  set setHomeWorld(Planet value) {
+    _homeWorld = value;
   }
 
-  void addVehiclesFromPerson() {
-    for (var vehicle in this.vehicleList) {
-      vehicleFutures.add(vehicle);
+  //FetchVehicles
+  Future fetchVehicles(BuildContext context, List<String> vehiclesLinks) async {
+    List<Future<Vehicle>> listaFutures = <Future<Vehicle>>[];
+
+    //Get id from VehicleLink
+    for (var vehicleLink in vehiclesLinks) {
+      final String vehicleId = vehicleLink.substring(vehicleLink.length - 3);
+
+      listaFutures.add(starWarsRepository.getVehicle(context, vehicleId));
     }
+
+    // Wait for all futures to complete
+    final response = await Future.wait(listaFutures);
+
+    setVehicleList = response;
+  }
+
+  //FetchStarships
+  Future fetchStarships(
+      BuildContext context, List<String> starshipsLinks) async {
+    List<Future<Starship>> listaFutures = <Future<Starship>>[];
+
+    //Get id from StarshipLink
+    for (var starshipsLink in starshipsLinks) {
+      final String starshipId =
+          starshipsLink.substring(starshipsLink.length - 3);
+
+      listaFutures.add(starWarsRepository.getStarship(context, starshipId));
+    }
+
+    // Wait for all futures to complete
+    final response = await Future.wait(listaFutures);
+
+    setStarshipList = response;
+  }
+
+  //FetchStarships
+  Future fetchHomeWorld(BuildContext context, String planetLink) async {
+    final String idPlanet = planetLink.substring(planetLink.length - 3);
+
+    final response = await starWarsRepository.getPlanet(context, idPlanet);
+
+    setHomeWorld = response;
+  }
+
+  clearAll() {
+    vehicleList.clear();
+    starshipList.clear();
+    setHomeWorld = Planet();
   }
 
   void loadPage(BuildContext context, People selectedPeople) async {
-    fetchVehicles(context, selectedPeople.vehicles);
+    clearAll();
+
+    List<Future> futureList = <Future>[];
+
+    futureList.add(fetchVehicles(context, selectedPeople.vehicles!));
+
+    futureList.add(fetchStarships(context, selectedPeople.starships!));
+
+    futureList.add(fetchHomeWorld(context, selectedPeople.homeworld!));
+
+    await Future.wait(futureList);
   }
 }
