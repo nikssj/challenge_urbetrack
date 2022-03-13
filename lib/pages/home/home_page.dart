@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:challenge_ubertrack/core/base_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_page.dart';
+import 'package:challenge_ubertrack/resources/assets.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ResponsiveBody(
             child: Stack(children: [
-          Image.asset('assets/death_star.jpg'),
+          Image.asset(Assets.deathStarImage),
           _homeVm.state == ViewState.Idle
               ? FadeInUp(
                   child: Column(
@@ -91,23 +92,23 @@ Widget starWarsPeople(BuildContext context) {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18)),
+                          fontSize: 20)),
                   subtitle: Text(
-                      'Altura: ' + _homeVm.peopleList![index].height! + 'cm',
+                      'Height: ' + _homeVm.peopleList![index].height! + 'cm',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.white70,
                           fontWeight: FontWeight.bold,
                           fontSize: 18)),
                   trailing: Column(
                     children: [
                       Text('Gender: ' + _homeVm.peopleList![index].gender!,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontSize: 18)),
                       Text('Weight: ' + _homeVm.peopleList![index].mass!,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontSize: 18)),
                     ],

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
+import 'package:challenge_ubertrack/resources/assets.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,13 +30,13 @@ class _IntroPageState extends State<IntroPage> {
           children: [
             Positioned.fill(
               child: Image.asset(
-                'assets/background_home.gif',
+                Assets.backgroundIntro,
                 fit: BoxFit.fill,
               ),
             ),
             FadeInDown(
               child: Image.asset(
-                'assets/star_wars_logo.png',
+                Assets.logoStarWars,
                 height: _size.height * 0.3,
               ),
             ),

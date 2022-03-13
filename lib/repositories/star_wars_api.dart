@@ -10,12 +10,12 @@ final starWarsRepository = StarWarsRepository();
 ApiBaseHelper _helper = ApiBaseHelper();
 
 class StarWarsRepository {
-  Future<List<People>?> getPeople(BuildContext context) async {
+  Future<List<People>> getPeople(BuildContext context) async {
     final response = await _helper.get('/people', context);
 
-    List<People>? peopleList;
+    List<People> peopleList;
 
-    peopleList = PeopleResponse.fromJson(response).results;
+    peopleList = PeopleResponse.fromJson(response).results!;
 
     return peopleList;
   }
