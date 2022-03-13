@@ -83,20 +83,23 @@ class InvadersDetailsViewModel extends BaseModel {
   clearAll() {
     vehicleList.clear();
     starshipList.clear();
-    setHomeWorld = Planet();
   }
 
   void loadPage(BuildContext context, People selectedPeople) async {
+    setState(ViewState.Busy);
+
     clearAll();
 
     List<Future> futureList = <Future>[];
+
+    futureList.add(fetchHomeWorld(context, selectedPeople.homeworld!));
 
     futureList.add(fetchVehicles(context, selectedPeople.vehicles!));
 
     futureList.add(fetchStarships(context, selectedPeople.starships!));
 
-    futureList.add(fetchHomeWorld(context, selectedPeople.homeworld!));
-
     await Future.wait(futureList);
+
+    setState(ViewState.Idle);
   }
 }

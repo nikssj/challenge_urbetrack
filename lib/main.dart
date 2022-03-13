@@ -1,3 +1,4 @@
+import 'package:challenge_ubertrack/pages/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,6 +6,8 @@ import 'core/providers.dart';
 import 'pages/home/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 

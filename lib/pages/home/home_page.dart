@@ -81,9 +81,6 @@ Widget starWarsPeople(BuildContext context) {
                 color: Colors.grey[900],
                 child: ListTile(
                   isThreeLine: true,
-                  focusColor: Colors.yellow,
-                  selectedTileColor: Colors.yellow,
-                  hoverColor: Colors.yellow,
                   onTap: () {
                     Get.to(
                         () => InvadersDetailsPage(_homeVm.peopleList![index]));
