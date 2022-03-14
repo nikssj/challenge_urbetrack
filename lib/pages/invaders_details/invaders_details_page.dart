@@ -46,29 +46,32 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
         ),
         body: BackgroundWidget(
             child: _homeVm.isPageLoaded == true
-                ? SingleChildScrollView(
-                    child: FadeIn(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.025),
-                          _extraDetails(context),
-                          SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.025),
-                          FloatingActionButton.extended(
-                              onPressed: () {},
-                              label: Text(
-                                'Report invader'.toUpperCase(),
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              backgroundColor: Colors.redAccent.shade700),
-                          SizedBox(height: _size.height * 0.05)
-                        ],
+                ? Container(
+                    height: _size.height,
+                    child: SingleChildScrollView(
+                      child: FadeIn(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.025),
+                            _extraDetails(context),
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.025),
+                            FloatingActionButton.extended(
+                                onPressed: () {},
+                                label: Text(
+                                  'Report invader'.toUpperCase(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                backgroundColor: Colors.redAccent.shade700),
+                            SizedBox(height: _size.height * 0.025)
+                          ],
+                        ),
                       ),
                     ),
                   )
