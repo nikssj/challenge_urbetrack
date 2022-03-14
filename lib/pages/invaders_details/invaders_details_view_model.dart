@@ -35,8 +35,11 @@ class InvadersDetailsViewModel extends BaseModel {
     _homeWorld = value;
   }
 
-  //FetchVehicles
-  Future fetchVehicles(BuildContext context, List<String> vehiclesLinks) async {
+  // ==================================== //
+
+  //Fetch Vehicles
+  Future<void> fetchVehicles(
+      BuildContext context, List<String> vehiclesLinks) async {
     List<Future<Vehicle>> listaFutures = <Future<Vehicle>>[];
 
     //Get id from VehicleLink
@@ -47,13 +50,13 @@ class InvadersDetailsViewModel extends BaseModel {
     }
 
     // Wait for all futures to complete
-    final response = await Future.wait(listaFutures);
+    final List<Vehicle> response = await Future.wait(listaFutures);
 
     setVehicleList = response;
   }
 
-  //FetchStarships
-  Future fetchStarships(
+  //Fetch Starships
+  Future<void> fetchStarships(
       BuildContext context, List<String> starshipsLinks) async {
     List<Future<Starship>> listaFutures = <Future<Starship>>[];
 
@@ -66,16 +69,17 @@ class InvadersDetailsViewModel extends BaseModel {
     }
 
     // Wait for all futures to complete
-    final response = await Future.wait(listaFutures);
+    final List<Starship> response = await Future.wait(listaFutures);
 
     setStarshipList = response;
   }
 
-  //FetchStarships
-  Future fetchHomeWorld(BuildContext context, String planetLink) async {
+  //Fetch Homeworld
+  Future<void> fetchHomeWorld(BuildContext context, String planetLink) async {
     final String idPlanet = planetLink.substring(planetLink.length - 3);
 
-    final response = await starWarsRepository.getPlanet(context, idPlanet);
+    final Planet response =
+        await starWarsRepository.getPlanet(context, idPlanet);
 
     setHomeWorld = response;
   }
@@ -83,10 +87,11 @@ class InvadersDetailsViewModel extends BaseModel {
   clearAll() {
     vehicleList.clear();
     starshipList.clear();
+    setHomeWorld = new Planet();
   }
 
   void loadPage(BuildContext context, People selectedPeople) async {
-    setState(ViewState.Busy);
+    setIsPageLoaded(false);
 
     clearAll();
 
@@ -100,6 +105,6 @@ class InvadersDetailsViewModel extends BaseModel {
 
     await Future.wait(futureList);
 
-    setState(ViewState.Idle);
+    setIsPageLoaded(true);
   }
 }

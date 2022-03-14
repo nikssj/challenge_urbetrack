@@ -13,17 +13,17 @@ class HomePageViewModel extends BaseModel {
 
   List<People>? get peopleList => _peopleList;
 
-  Future<List<People>?> fetchPeople(BuildContext context) async {
-    setState(ViewState.Busy);
-
+  Future<void> fetchPeople(BuildContext context) async {
     final response = await starWarsRepository.getPeople(context);
 
     setPeopleList = response;
-
-    setState(ViewState.Idle);
   }
 
   void loadPage(BuildContext context) async {
+    setIsPageLoaded(false);
+
     await fetchPeople(context);
+
+    setIsPageLoaded(true);
   }
 }
