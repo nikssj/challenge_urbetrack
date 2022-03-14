@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
 import 'package:challenge_ubertrack/resources/assets.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
@@ -29,22 +30,27 @@ class _IntroPageState extends State<IntroPage> {
           alignment: Alignment.center,
           children: [
             Positioned.fill(
-              child: Image.asset(
-                Assets.backgroundIntro,
-                fit: BoxFit.fill,
-              ),
+              child: Image.asset(Assets.backgroundIntro, fit: BoxFit.fill),
             ),
             FadeInDown(
-              child: Image.asset(
-                Assets.logoStarWars,
-                height: _size.height * 0.3,
-              ),
+              child:
+                  Image.asset(Assets.logoStarWars, height: _size.height * 0.3),
             ),
             Positioned(
               bottom: MediaQuery.of(context).size.height * 0.3,
-              child: FadeInUp(
-                child: Text('Desarrollado por\nhttp://nikssj.dev',
-                    style: TextStyle(color: Colors.white, fontSize: 36)),
+              child: FadeIn(
+                child: AnimatedTextKit(
+                  totalRepeatCount: 1,
+                  animatedTexts: [
+                    TypewriterAnimatedText('\nDeveloped by\nhttps://nikssj.dev',
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 34,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                        speed: Duration(milliseconds: 50)),
+                  ],
+                ),
               ),
             )
           ],

@@ -9,6 +9,7 @@ class BackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
+        position: DecorationPosition.background,
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(Assets.deathStarImage), fit: BoxFit.cover)),

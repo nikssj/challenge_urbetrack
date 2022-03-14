@@ -1,3 +1,4 @@
+import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animate_do/animate_do.dart';
@@ -31,6 +32,8 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
     final _homeVm =
         Provider.of<InvadersDetailsViewModel>(context, listen: true);
 
+    final _size = MediaQuery.of(context).size;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black87,
@@ -43,15 +46,30 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
         ),
         body: BackgroundWidget(
             child: _homeVm.isPageLoaded == true
-                ? FadeIn(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.025),
-                        _extraDetails(context),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.025),
-                      ],
+                ? SingleChildScrollView(
+                    child: FadeIn(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.025),
+                          _extraDetails(context),
+                          SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.025),
+                          FloatingActionButton.extended(
+                              onPressed: () {},
+                              label: Text(
+                                'Report invader'.toUpperCase(),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              backgroundColor: Colors.redAccent.shade700),
+                          SizedBox(height: _size.height * 0.05)
+                        ],
+                      ),
                     ),
                   )
                 : CustomLoadingSpinner()));
@@ -70,87 +88,85 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
         color: Colors.white70, fontSize: 18, fontWeight: FontWeight.bold);
 
     return Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        color: Colors.grey[900],
-        child: Column(
-          children: [
-            SizedBox(height: _size.height * 0.025),
-            AnimatedTextKit(
-              totalRepeatCount: 1,
-              animatedTexts: [
-                TypewriterAnimatedText(
-                    widget.selectedPeople.name!.toUpperCase(),
-                    textStyle: _titleStyle,
-                    speed: Duration(milliseconds: 100)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      color: Colors.grey[900],
+      child: Column(
+        children: [
+          SizedBox(height: _size.height * 0.025),
+          AnimatedTextKit(
+            totalRepeatCount: 1,
+            animatedTexts: [
+              TypewriterAnimatedText(widget.selectedPeople.name!.toUpperCase(),
+                  textStyle: _titleStyle, speed: Duration(milliseconds: 100)),
+            ],
+          ),
+          SizedBox(height: _size.height * 0.02),
+          Divider(color: Colors.grey, height: 1),
+          SizedBox(height: _size.height * 0.02),
+          ListTile(
+            title: Text('Invader physical characteristics', style: _titleStyle),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('・Hair color: ' + widget.selectedPeople.hairColor!,
+                    style: _characteristicsStyle),
+                Text('・Skin color: ' + widget.selectedPeople.skinColor!,
+                    style: _characteristicsStyle),
+                Text('・Eyes color: ' + widget.selectedPeople.eyeColor!,
+                    style: _characteristicsStyle),
               ],
             ),
-            SizedBox(height: _size.height * 0.02),
-            Divider(color: Colors.grey, height: 1),
-            SizedBox(height: _size.height * 0.02),
-            ListTile(
-              title:
-                  Text('Invader physical characteristics', style: _titleStyle),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('・Hair color: ' + widget.selectedPeople.hairColor!,
-                      style: _characteristicsStyle),
-                  Text('・Skin color: ' + widget.selectedPeople.skinColor!,
-                      style: _characteristicsStyle),
-                  Text('・Eyes color: ' + widget.selectedPeople.eyeColor!,
-                      style: _characteristicsStyle),
-                ],
-              ),
+          ),
+          SizedBox(height: _size.height * 0.02),
+          ListTile(
+            title: Text('Homeworld which he belongs', style: _titleStyle),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('・Homeworlds name: ' + _invadersVm.homeWorld.name!,
+                    style: _characteristicsStyle),
+                Text('・Climate: ' + _invadersVm.homeWorld.climate!,
+                    style: _characteristicsStyle),
+                Text('・Terrain: ' + _invadersVm.homeWorld.terrain!,
+                    style: _characteristicsStyle),
+                Text(
+                  '・Population: ' + _invadersVm.homeWorld.population!,
+                  style: _characteristicsStyle,
+                ),
+              ],
             ),
-            SizedBox(height: _size.height * 0.02),
-            ListTile(
-              title: Text('Homeworld which he belongs', style: _titleStyle),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('・Homeworlds name: ' + _invadersVm.homeWorld.name!,
-                      style: _characteristicsStyle),
-                  Text('・Climate: ' + _invadersVm.homeWorld.climate!,
-                      style: _characteristicsStyle),
-                  Text('・Terrain: ' + _invadersVm.homeWorld.terrain!,
-                      style: _characteristicsStyle),
-                  Text(
-                    '・Population: ' + _invadersVm.homeWorld.population!,
-                    style: _characteristicsStyle,
-                  ),
-                ],
-              ),
+          ),
+          SizedBox(height: _size.height * 0.02),
+          ListTile(
+            title: Text('Starships', style: _titleStyle),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: _invadersVm.starshipList.length != 0
+                  ? _invadersVm.starshipList
+                      .map((starship) => Text('・' + starship.name!,
+                          style: _characteristicsStyle))
+                      .toList()
+                  : [Text('・None', style: _characteristicsStyle)],
             ),
-            SizedBox(height: _size.height * 0.02),
-            ListTile(
-              title: Text('Starships', style: _titleStyle),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _invadersVm.starshipList.length != 0
-                    ? _invadersVm.starshipList
-                        .map((starship) => Text('・' + starship.name!,
-                            style: _characteristicsStyle))
-                        .toList()
-                    : [Text('・None', style: _characteristicsStyle)],
-              ),
+          ),
+          SizedBox(height: _size.height * 0.02),
+          ListTile(
+            title: Text('Vehicles', style: _titleStyle),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: _invadersVm.vehicleList.length != 0
+                  ? _invadersVm.vehicleList
+                      .map((starship) => new Text('・' + starship.name!,
+                          style: _characteristicsStyle))
+                      .toList()
+                  : [Text('・None', style: _characteristicsStyle)],
             ),
-            SizedBox(height: _size.height * 0.02),
-            ListTile(
-              title: Text('Vehicles', style: _titleStyle),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _invadersVm.vehicleList.length != 0
-                    ? _invadersVm.vehicleList
-                        .map((starship) => new Text('・' + starship.name!,
-                            style: _characteristicsStyle))
-                        .toList()
-                    : [Text('・None', style: _characteristicsStyle)],
-              ),
-            ),
-            SizedBox(height: _size.height * 0.025),
-          ],
-        ));
+          ),
+          SizedBox(height: _size.height * 0.02),
+        ],
+      ),
+    );
   }
 }

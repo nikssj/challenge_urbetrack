@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class IntroViewModel extends BaseModel {
   void loadPage() async {
-    await Future.delayed(Duration(milliseconds: 2500));
+    await Future.delayed(Duration(milliseconds: 3000));
 
     Get.to(() => HomePage());
   }
