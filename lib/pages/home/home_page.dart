@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_page.dart';
 import 'package:challenge_ubertrack/widgets/background_image.dart';
+import 'package:challenge_ubertrack/widgets/custom_app_bar.dart';
 import 'package:challenge_ubertrack/widgets/custom_loading_spinner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,15 +32,9 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.black87,
-            shadowColor: Colors.white,
-            title: Text(
-              'List of threats',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
+          appBar: CustomAppBar(
+            titulo: 'List of threats',
             automaticallyImplyLeading: false,
-            centerTitle: true,
           ),
           body: BackgroundWidget(
             child: Center(
@@ -62,8 +57,6 @@ class _HomePageState extends State<HomePage> {
 Widget starWarsPeople(BuildContext context) {
   final _homeVm = Provider.of<HomePageViewModel>(context, listen: false);
 
-  final _size = MediaQuery.of(context).size;
-
   return _homeVm.peopleList?.length == 0
       ? Text('No hay invasores')
       : Column(
@@ -85,7 +78,8 @@ Widget starWarsPeople(BuildContext context) {
                           Get.to(() => InvadersDetailsPage(
                               selectedPeople: _homeVm.peopleList![index]));
                         },
-                        title: Text(_homeVm.peopleList![index].name!,
+                        title: Text(
+                            _homeVm.peopleList![index].name!.toUpperCase(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
