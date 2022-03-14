@@ -103,7 +103,7 @@ Widget starWarsPeople(BuildContext context) {
                               color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontSize: 18)),
-                      Text('Weight: ' + _homeVm.peopleList![index].mass!,
+                      Text('Weight: ' + _homeVm.peopleList![index].mass! + 'kg',
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.bold,
