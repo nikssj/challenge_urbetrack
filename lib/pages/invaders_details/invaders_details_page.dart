@@ -1,17 +1,16 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
-import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_view_model.dart';
-import 'package:challenge_ubertrack/resources/assets.dart';
-import 'package:challenge_ubertrack/widgets/background_image.dart';
-import 'package:challenge_ubertrack/widgets/custom_loading_spinner.dart';
-import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
+import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_view_model.dart';
+import 'package:challenge_ubertrack/widgets/background_image.dart';
+import 'package:challenge_ubertrack/widgets/custom_loading_spinner.dart';
 
 class InvadersDetailsPage extends StatefulWidget {
   final People selectedPeople;
 
-  InvadersDetailsPage(this.selectedPeople);
+  InvadersDetailsPage({required this.selectedPeople});
 
   @override
   _InvadersDetailsPageState createState() => _InvadersDetailsPageState();
@@ -67,104 +66,90 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
     final _titleStyle = TextStyle(
         color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
 
-    final _characteristicsStyle = TextStyle(color: Colors.white, fontSize: 18);
+    final _characteristicsStyle = TextStyle(
+        color: Colors.white70, fontSize: 18, fontWeight: FontWeight.bold);
 
     return Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
         color: Colors.grey[900],
         child: Column(
           children: [
+            SizedBox(height: _size.height * 0.025),
+            AnimatedTextKit(
+              totalRepeatCount: 1,
+              animatedTexts: [
+                TypewriterAnimatedText(
+                    widget.selectedPeople.name!.toUpperCase(),
+                    textStyle: _titleStyle,
+                    speed: Duration(milliseconds: 100)),
+              ],
+            ),
+            SizedBox(height: _size.height * 0.02),
+            Divider(color: Colors.grey, height: 1),
+            SizedBox(height: _size.height * 0.02),
             ListTile(
-              isThreeLine: true,
               title:
                   Text('Invader physical characteristics', style: _titleStyle),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: _size.height * 0.02),
-                  Text('Hair color: ' + widget.selectedPeople.hairColor!,
+                  Text('・Hair color: ' + widget.selectedPeople.hairColor!,
                       style: _characteristicsStyle),
-                  Text('Skin color: ' + widget.selectedPeople.skinColor!,
+                  Text('・Skin color: ' + widget.selectedPeople.skinColor!,
                       style: _characteristicsStyle),
-                  Text('Eyes color: ' + widget.selectedPeople.eyeColor!,
+                  Text('・Eyes color: ' + widget.selectedPeople.eyeColor!,
                       style: _characteristicsStyle),
                 ],
               ),
             ),
-            SizedBox(height: _size.height * 0.025),
+            SizedBox(height: _size.height * 0.02),
             ListTile(
-              isThreeLine: true,
               title: Text('Homeworld which he belongs', style: _titleStyle),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: _size.height * 0.02),
-                  Text('Homeworlds name: ' + _invadersVm.homeWorld.name!,
+                  Text('・Homeworlds name: ' + _invadersVm.homeWorld.name!,
                       style: _characteristicsStyle),
-                  Text('Climate: ' + _invadersVm.homeWorld.climate!,
+                  Text('・Climate: ' + _invadersVm.homeWorld.climate!,
                       style: _characteristicsStyle),
-                  Text('Terrain: ' + _invadersVm.homeWorld.terrain!,
+                  Text('・Terrain: ' + _invadersVm.homeWorld.terrain!,
                       style: _characteristicsStyle),
                   Text(
-                    'Population: ' + _invadersVm.homeWorld.population!,
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    '・Population: ' + _invadersVm.homeWorld.population!,
+                    style: _characteristicsStyle,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: _size.height * 0.025),
+            SizedBox(height: _size.height * 0.02),
             ListTile(
-              isThreeLine: true,
               title: Text('Starships', style: _titleStyle),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: _size.height * 0.02),
-                  _invadersVm.starshipList.length == 0
-                      ? new Text(
-                          'None',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )
-                      : Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: _invadersVm.starshipList
-                              .map((starship) => new Text(
-                                    starship.name!,
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
-                                  ))
-                              .toList())
-                ],
+                children: _invadersVm.starshipList.length != 0
+                    ? _invadersVm.starshipList
+                        .map((starship) => Text('・' + starship.name!,
+                            style: _characteristicsStyle))
+                        .toList()
+                    : [Text('・None', style: _characteristicsStyle)],
               ),
             ),
+            SizedBox(height: _size.height * 0.02),
             ListTile(
-              isThreeLine: true,
               title: Text('Vehicles', style: _titleStyle),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: _size.height * 0.02),
-                  _invadersVm.starshipList.length == 0
-                      ? new Text(
-                          'None',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )
-                      : _invadersVm.vehicleList.length != 0
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: _invadersVm.vehicleList
-                                  .map((vehicle) => new Text(
-                                        vehicle.name!,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 18),
-                                      ))
-                                  .toList())
-                          : Text(
-                              'None',
-                              style: _characteristicsStyle,
-                            )
-                ],
+                children: _invadersVm.vehicleList.length != 0
+                    ? _invadersVm.vehicleList
+                        .map((starship) => new Text('・' + starship.name!,
+                            style: _characteristicsStyle))
+                        .toList()
+                    : [Text('・None', style: _characteristicsStyle)],
               ),
             ),
+            SizedBox(height: _size.height * 0.025),
           ],
         ));
   }

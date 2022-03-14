@@ -82,10 +82,8 @@ Widget starWarsPeople(BuildContext context) {
                       color: Colors.grey[900],
                       child: ListTile(
                         onTap: () {
-                          Get.to(
-                              () => InvadersDetailsPage(
-                                  _homeVm.peopleList![index]),
-                              transition: Transition.rightToLeftWithFade);
+                          Get.to(() => InvadersDetailsPage(
+                              selectedPeople: _homeVm.peopleList![index]));
                         },
                         title: Text(_homeVm.peopleList![index].name!,
                             style: TextStyle(
