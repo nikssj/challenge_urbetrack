@@ -62,14 +62,17 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                     MediaQuery.of(context).size.height * 0.025),
                             FloatingActionButton.extended(
                                 onPressed: networkPreferences.networkStatus
-                                    ? () {
+                                    ? () async {
                                         customDialog.showDialog(
                                             context,
                                             'Reporting invader',
                                             'Are you sure you want to report ' +
-                                                widget.selectedPeople.name!);
-                                        // _invaderDetailsVm.reportInvader(
-                                        //     widget.selectedPeople);
+                                                '\n' +
+                                                '\n' +
+                                                '${widget.selectedPeople.name}'
+                                                    .toUpperCase() +
+                                                '?',
+                                            _report);
                                       }
                                     : () {
                                         toastWidgetService.showToast(
@@ -93,6 +96,13 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                     ),
                   )
                 : CustomLoadingSpinner()));
+  }
+
+  _report() async {
+    final _invadersDetailsVm =
+        Provider.of<InvadersDetailsViewModel>(context, listen: false);
+
+    await _invadersDetailsVm.reportInvader(widget.selectedPeople);
   }
 
   Widget _extraDetails(BuildContext context) {

@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:challenge_ubertrack/pages/invaders_details/models/invader_report_model.dart';
+import 'package:challenge_ubertrack/widgets/toast.dart';
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
@@ -102,13 +103,10 @@ class InvadersDetailsViewModel extends BaseModel {
 
     final response = await starWarsRepository.reportInvader(newInvaderReport);
 
-    // print({
-    //   newInvaderReport.characterName,
-    //   newInvaderReport.dateTime,
-    //   newInvaderReport.userId
-    // });
-
-    // setInvaderReport = response;
+    print(response);
+    if (response != null) {
+      toastWidgetService.showToast('Invader has been reported!');
+    }
   }
 
   clearAll() {
