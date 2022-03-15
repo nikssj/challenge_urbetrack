@@ -3,6 +3,7 @@ import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_page
 import 'package:challenge_ubertrack/widgets/background_image.dart';
 import 'package:challenge_ubertrack/widgets/custom_app_bar.dart';
 import 'package:challenge_ubertrack/widgets/custom_loading_spinner.dart';
+import 'package:challenge_ubertrack/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,15 @@ class _HomePageState extends State<HomePage> {
           appBar: CustomAppBar(
             titulo: 'List of threats',
             automaticallyImplyLeading: false,
+            leading: Builder(
+              builder: (context) => IconButton(
+                color: Colors.white,
+                icon: const Icon(Icons.menu),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+            ),
           ),
+          drawer: SideBarWidget(),
           body: BackgroundWidget(
             child: Center(
               child: _homeVm.isPageLoaded == true

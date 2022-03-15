@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String titulo;
+  final Widget? leading;
   final automaticallyImplyLeading;
 
   CustomAppBar({
     required this.titulo,
     this.automaticallyImplyLeading,
+    this.leading,
   }) : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
@@ -23,6 +25,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         centerTitle: true,
         backgroundColor: Colors.black87,
         shadowColor: Colors.white,
+        leading: widget.leading,
         automaticallyImplyLeading: widget.automaticallyImplyLeading ?? true,
         title: Text(
           widget.titulo.toUpperCase(),

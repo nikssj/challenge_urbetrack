@@ -1,0 +1,17 @@
+{
+    "network_modes": [
+        {
+            "ruta": "perfil",
+            "icon": "perfil",
+            "texto": "Online",
+            "networkStatus": true
+        },
+        {
+            "ruta": "listado-clases",
+            "icon": "clases",
+            "texto": "Offline",
+            "networkStatus": false
+
+        }
+    ]
+}

@@ -1,7 +1,6 @@
-import 'package:challenge_ubertrack/widgets/custom_app_bar.dart';
-import 'package:challenge_ubertrack/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:challenge_ubertrack/widgets/custom_app_bar.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
