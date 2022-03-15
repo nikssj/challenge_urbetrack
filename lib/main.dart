@@ -1,3 +1,4 @@
+import 'package:challenge_ubertrack/hive/network_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await hiveModule.initModule();
+
+  //Network status offline when app launched
+  NetworkPreferences().networkStatus = false;
 
   runApp(MyApp());
 }

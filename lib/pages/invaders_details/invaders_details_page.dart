@@ -1,3 +1,5 @@
+import 'package:challenge_ubertrack/hive/network_preferences.dart';
+import 'package:challenge_ubertrack/widgets/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:challenge_ubertrack/widgets/custom_app_bar.dart';
@@ -52,7 +54,12 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.025),
                             FloatingActionButton.extended(
-                                onPressed: () {},
+                                onPressed: NetworkPreferences().networkStatus
+                                    ? () {}
+                                    : () {
+                                        ToastWidget().showToast(
+                                            'You must switch to online mode for reporting');
+                                      },
                                 label: Text(
                                   'Report invader'.toUpperCase(),
                                   style: TextStyle(
@@ -60,7 +67,10 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                backgroundColor: Colors.redAccent.shade700),
+                                backgroundColor:
+                                    NetworkPreferences().networkStatus
+                                        ? Colors.redAccent.shade700
+                                        : Colors.white30),
                             SizedBox(height: _size.height * 0.025)
                           ],
                         ),

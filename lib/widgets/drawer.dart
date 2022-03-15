@@ -1,9 +1,11 @@
 import 'package:challenge_ubertrack/core/sidebar_provider.dart';
 import 'package:challenge_ubertrack/hive/hive.dart';
 import 'package:challenge_ubertrack/hive/network_preferences.dart';
+import 'package:challenge_ubertrack/widgets/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SideBarWidget extends StatelessWidget {
   @override
@@ -45,9 +47,25 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: _size.height * 0.02),
-              Text(
-                'Current network status: ' + 'Offline',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                        text: 'Current network status: ',
+                        style: TextStyle(color: Colors.white, fontSize: 20)),
+                    TextSpan(
+                      text: NetworkPreferences().networkStatus
+                          ? 'Online'
+                          : 'Offline',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: NetworkPreferences().networkStatus
+                              ? Colors.green
+                              : Colors.red),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: _size.height * 0.02),
               Divider(color: Colors.grey),
@@ -60,34 +78,34 @@ class SideBarWidget extends StatelessWidget {
                 color: Colors.grey[700],
                 thickness: 1,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    child: Icon(
-                      Icons.arrow_forward,
-                      size: 16,
-                      color: Colors.grey[700],
+              GestureDetector(
+                onTap: _launchURL,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 5),
+                      child: Icon(
+                        Icons.arrow_forward,
+                        size: 16,
+                        color: Colors.grey[700],
+                      ),
                     ),
-                  ),
-                  GestureDetector(
-                    child: Text('Developed by ',
+                    Text('Developed by ',
                         style: TextStyle(
                           color: Colors.grey[200],
-                          fontSize: 13,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         )),
-                  ),
-                  GestureDetector(
-                      child: Text('https://nikssj.dev',
-                          style: TextStyle(
-                              decoration: TextDecoration.overline,
-                              decorationThickness: 1.5,
-                              color: Colors.amber,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13))),
-                ],
+                    Text('https://nikssj.dev',
+                        style: TextStyle(
+                            decoration: TextDecoration.overline,
+                            decorationThickness: 1.5,
+                            color: Colors.amber,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14)),
+                  ],
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.015,
@@ -95,6 +113,11 @@ class SideBarWidget extends StatelessWidget {
             ],
           );
         });
+  }
+
+  void _launchURL() async {
+    String url = 'https://nikssj.dev';
+    if (!await launch(url)) throw 'Could not launch $url';
   }
 
   List<Widget> _crearListaItems(List<dynamic> data, context) {
@@ -105,9 +128,11 @@ class SideBarWidget extends StatelessWidget {
     data.forEach((opt) {
       final widgetTemp = ListTile(
         onTap: () {
-          NetworkPreferences(null).networkStatus = opt['networkStatus'];
+          NetworkPreferences().networkStatus = opt['networkStatus'];
 
-          print(NetworkPreferences(null).networkStatus);
+          print(NetworkPreferences().networkStatus);
+
+          ToastWidget().showToast('Network is now: ' + opt['texto'] + '!');
 
           Get.back();
         },

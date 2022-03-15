@@ -5,10 +5,10 @@ part 'network_preferences.g.dart';
 
 @HiveType(typeId: 1)
 class NetworkPreferences {
-  NetworkPreferences(this.isOnline);
+  NetworkPreferences();
 
   @HiveField(0)
-  bool? isOnline;
+  bool isOnline = false;
 
   // GETTER y SETTER
   bool get networkStatus {
