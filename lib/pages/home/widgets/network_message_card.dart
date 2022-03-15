@@ -16,6 +16,8 @@ class NetworkMessageCard extends StatelessWidget {
     final _size = MediaQuery.of(context).size;
 
     return Card(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20))),
       color: Colors.grey[900],
       child: Container(
         margin: EdgeInsets.symmetric(vertical: _size.height * 0.05),

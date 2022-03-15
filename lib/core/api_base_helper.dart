@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:challenge_ubertrack/widgets/toast.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -30,8 +31,10 @@ class ApiBaseHelper {
 
       responseJson = _returnResponse(response, context);
     } on SocketException {
+      toastWidgetService.showToast('No internet connection');
       throw Exception('No Internet connection');
     } on TimeoutException {
+      toastWidgetService.showToast('Timeout error');
       throw Exception('Timeout get');
     } catch (e) {
       throw (e);
@@ -48,31 +51,9 @@ dynamic _returnResponse(http.Response response, BuildContext context) async {
     case 200:
       return json.decode(response.body.toString());
 
-    case 400:
-      var body = json.decode(response.body.toString());
-
-      // return toastWidgetsService.mostrarToastError(context, body['msg'], false);
-
-      break;
-
-    case 401:
-
-      // return toastWidgetsService.mostrarToastError(context,
-      //     'Acceso no autorizado. Por favor inicie sesión nuevamente', false);
-      break;
-
-    case 403:
-      // return toastWidgetsService.mostrarToastError(context,
-      //     'Acceso no autorizado. Por favor inicie sesión nuevamente', false);
-
-      break;
-
     case 500:
-      // return toastWidgetsService.mostrarToastError(
-      //     context,
-      //     'Ups! Ha ocurrido un error. Por favor comunicarse con el administrador',
-      //     false);
-      break;
+      return toastWidgetService.showToast(
+          'Ups! Ha ocurrido un error. Por favor comunicarse con el administrador');
     default:
       throw FetchDataException(
           'Error occured while Communication with Server with StatusCode : ${response.statusCode}');

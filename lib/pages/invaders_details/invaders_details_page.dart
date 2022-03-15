@@ -62,7 +62,7 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                 onPressed: NetworkPreferences().networkStatus
                                     ? () {}
                                     : () {
-                                        ToastWidget().showToast(
+                                        toastWidgetService.showToast(
                                             'You must switch to online mode for reporting');
                                       },
                                 label: Text(

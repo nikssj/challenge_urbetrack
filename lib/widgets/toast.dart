@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:fluttertoast/fluttertoast.dart';
 
-class ToastWidget {
+final toastWidgetService = ToastWidgetService();
+
+class ToastWidgetService {
   void showToast(String message) {
     Fluttertoast.cancel();
 
