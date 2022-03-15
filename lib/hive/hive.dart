@@ -1,7 +1,9 @@
-import 'package:challenge_ubertrack/hive/network_preferences.dart';
+// Package imports:
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+// Project imports:
+import 'package:challenge_ubertrack/hive/network_preferences.dart';
 import 'hive_adapters.dart';
 
 final hiveModule = HiveModule();

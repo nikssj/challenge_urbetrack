@@ -1,10 +1,15 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:animate_do/animate_do.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
 import 'package:challenge_ubertrack/resources/assets.dart';
 import 'package:challenge_ubertrack/widgets/responsive_body.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class IntroPage extends StatefulWidget {
   @override

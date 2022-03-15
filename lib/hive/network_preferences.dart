@@ -1,5 +1,8 @@
-import 'package:challenge_ubertrack/hive/hive.dart';
+// Package imports:
 import 'package:hive/hive.dart';
+
+// Project imports:
+import 'package:challenge_ubertrack/hive/hive.dart';
 
 part 'network_preferences.g.dart';
 

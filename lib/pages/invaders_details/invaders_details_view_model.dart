@@ -1,10 +1,12 @@
+// Flutter imports:
+import 'package:flutter/cupertino.dart';
+
+// Project imports:
 import 'package:challenge_ubertrack/core/base_model.dart';
 import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/models/starship_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/models/vehicle_model.dart';
 import 'package:challenge_ubertrack/repositories/star_wars_api.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'models/planet_model.dart';
 
 class InvadersDetailsViewModel extends BaseModel {

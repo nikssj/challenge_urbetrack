@@ -1,6 +1,9 @@
+// Package imports:
+import 'package:hive/hive.dart';
+
+// Project imports:
 import 'package:challenge_ubertrack/hive/hive.dart';
 import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
-import 'package:hive/hive.dart';
 
 part 'invader_preferences.g.dart';
 

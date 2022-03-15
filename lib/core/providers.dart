@@ -1,8 +1,13 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:challenge_ubertrack/pages/home/home_page_view_model.dart';
 import 'package:challenge_ubertrack/pages/intro/intro_view_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/invaders_details_view_model.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Providers extends StatefulWidget {
   final Widget child;

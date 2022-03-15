@@ -1,7 +1,10 @@
-import 'package:challenge_ubertrack/core/base_model.dart';
-import 'package:challenge_ubertrack/repositories/star_wars_api.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
+import 'package:challenge_ubertrack/core/base_model.dart';
+import 'package:challenge_ubertrack/hive/network_preferences.dart';
+import 'package:challenge_ubertrack/repositories/star_wars_api.dart';
 import 'models/people_model.dart';
 
 class HomePageViewModel extends BaseModel {
@@ -19,10 +22,12 @@ class HomePageViewModel extends BaseModel {
     setPeopleList = response;
   }
 
-  void loadPage(BuildContext context) async {
+  Future<void> loadPage(BuildContext context) async {
     setIsPageLoaded(false);
 
-    await fetchPeople(context);
+    if (NetworkPreferences().networkStatus) {
+      await fetchPeople(context);
+    }
 
     setIsPageLoaded(true);
   }

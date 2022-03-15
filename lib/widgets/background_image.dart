@@ -1,5 +1,8 @@
-import 'package:challenge_ubertrack/resources/assets.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:challenge_ubertrack/resources/assets.dart';
 
 class BackgroundWidget extends StatelessWidget {
   final Widget child;

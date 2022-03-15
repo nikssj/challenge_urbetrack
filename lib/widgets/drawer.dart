@@ -1,11 +1,16 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+// Project imports:
 import 'package:challenge_ubertrack/core/sidebar_provider.dart';
 import 'package:challenge_ubertrack/hive/hive.dart';
 import 'package:challenge_ubertrack/hive/network_preferences.dart';
 import 'package:challenge_ubertrack/widgets/toast.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SideBarWidget extends StatelessWidget {
   @override

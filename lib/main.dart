@@ -1,7 +1,11 @@
-import 'package:challenge_ubertrack/hive/network_preferences.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:get/get.dart';
 
+// Project imports:
+import 'package:challenge_ubertrack/hive/network_preferences.dart';
 import 'core/providers.dart';
 import 'hive/hive.dart';
 import 'pages/home/home_page.dart';
