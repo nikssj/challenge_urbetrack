@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:challenge_ubertrack/pages/invaders_details/models/invader_report_model.dart';
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
@@ -37,11 +38,19 @@ class InvadersDetailsViewModel extends BaseModel {
     _homeWorld = value;
   }
 
+  //Invader report
+  InvaderReport _invaderReport = InvaderReport();
+
+  InvaderReport get invaderReport => this._invaderReport;
+
+  set setInvaderReport(InvaderReport value) {
+    _invaderReport = value;
+  }
+
   // ==================================== //
 
   //Fetch Vehicles
-  Future<void> fetchVehicles(
-      BuildContext context, List<String> vehiclesLinks) async {
+  Future<void> fetchVehicles(List<String> vehiclesLinks) async {
     List<Future<Vehicle>> listaFutures = <Future<Vehicle>>[];
 
     //Get id from VehicleLink
@@ -58,8 +67,7 @@ class InvadersDetailsViewModel extends BaseModel {
   }
 
   //Fetch Starships
-  Future<void> fetchStarships(
-      BuildContext context, List<String> starshipsLinks) async {
+  Future<void> fetchStarships(List<String> starshipsLinks) async {
     List<Future<Starship>> listaFutures = <Future<Starship>>[];
 
     //Get id from StarshipLink
@@ -77,7 +85,7 @@ class InvadersDetailsViewModel extends BaseModel {
   }
 
   //Fetch Homeworld
-  Future<void> fetchHomeWorld(BuildContext context, String planetLink) async {
+  Future<void> fetchHomeWorld(String planetLink) async {
     final String idPlanet = planetLink.substring(planetLink.length - 3);
 
     final Planet response = await starWarsRepository.getPlanet(idPlanet);
@@ -85,24 +93,43 @@ class InvadersDetailsViewModel extends BaseModel {
     setHomeWorld = response;
   }
 
+  //Post InvaderReport
+  Future<void> reportInvader(People invader) async {
+    final now = DateTime.now();
+
+    final InvaderReport newInvaderReport = InvaderReport(
+        characterName: invader.name, userId: 1, dateTime: now.toString());
+
+    final response = await starWarsRepository.reportInvader(newInvaderReport);
+
+    // print({
+    //   newInvaderReport.characterName,
+    //   newInvaderReport.dateTime,
+    //   newInvaderReport.userId
+    // });
+
+    // setInvaderReport = response;
+  }
+
   clearAll() {
     vehicleList.clear();
     starshipList.clear();
     setHomeWorld = new Planet();
+    setInvaderReport = new InvaderReport();
   }
 
   void loadPage(BuildContext context, People selectedPeople) async {
-    setIsPageLoaded(false);
-
     clearAll();
+
+    setIsPageLoaded(false);
 
     List<Future> futureList = <Future>[];
 
-    futureList.add(fetchHomeWorld(context, selectedPeople.homeworld!));
+    futureList.add(fetchHomeWorld(selectedPeople.homeworld!));
 
-    futureList.add(fetchVehicles(context, selectedPeople.vehicles!));
+    futureList.add(fetchVehicles(selectedPeople.vehicles!));
 
-    futureList.add(fetchStarships(context, selectedPeople.starships!));
+    futureList.add(fetchStarships(selectedPeople.starships!));
 
     await Future.wait(futureList);
 

@@ -130,6 +130,7 @@ class SideBarWidget extends StatelessWidget {
 
     data.forEach((opt) {
       final widgetTemp = ListTile(
+        selectedTileColor: Colors.amber,
         onTap: () {
           networkPreferences.networkStatus = opt['networkStatus'];
 

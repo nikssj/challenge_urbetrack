@@ -41,6 +41,7 @@ dependencies:
   fluttertoast: 8.0.8
   url_launcher: ^6.0.10
   import_sorter: 4.6.0
+  dialogs: ^0.0.7
 
 
 dev_dependencies:

@@ -5,7 +5,6 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:challenge_ubertrack/widgets/toast.dart';
-import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:http/http.dart' as http;
@@ -16,17 +15,18 @@ import 'exceptions.dart';
 
 class ApiBaseHelper {
   String baseUrl = EnvironmentConfiguration.URL_DEVELOP;
+  var headers = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
 
-  Future get(String url) async {
+  Future<dynamic> get(String? baseUrl, String url) async {
     var responseJson;
 
     http.Response response;
 
     try {
       response = await http
-          .get(
-            Uri.parse(baseUrl + url),
-          )
+          .get(Uri.parse(baseUrl ?? this.baseUrl + url), headers: headers)
           .timeout(Duration(seconds: 30));
 
       responseJson = _returnResponse(response);
@@ -42,18 +42,17 @@ class ApiBaseHelper {
     return responseJson;
   }
 
-  //IMPLEMENT POST METHOD
-
-  Future post(String url) async {
+  Future<dynamic> post(String? baseUrl, String url, body) async {
     var responseJson;
 
     http.Response response;
 
     try {
       response = await http
-          .get(
-            Uri.parse(baseUrl + url),
-          )
+          .post(Uri.parse((baseUrl ?? (this.baseUrl + url))),
+              headers: headers,
+              body: json.encode(body),
+              encoding: Encoding.getByName('utf-8'))
           .timeout(Duration(seconds: 30));
 
       responseJson = _returnResponse(response);
@@ -73,7 +72,10 @@ class ApiBaseHelper {
 dynamic _returnResponse(http.Response response) async {
   switch (response.statusCode) {
     case 200:
-      return json.decode(response.body.toString());
+      return json.decode(response.body);
+
+    case 201:
+      return json.decode(response.body);
 
     default:
       toastWidgetService.showToast(

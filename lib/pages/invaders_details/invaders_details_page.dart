@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'package:challenge_ubertrack/widgets/custom_dialog.dart';
+import 'package:dialogs/dialogs/choice_dialog.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -36,7 +38,7 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final _homeVm =
+    final _invaderDetailsVm =
         Provider.of<InvadersDetailsViewModel>(context, listen: true);
 
     final _size = MediaQuery.of(context).size;
@@ -44,7 +46,7 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
     return Scaffold(
         appBar: CustomAppBar(titulo: 'Invader details'),
         body: BackgroundWidget(
-            child: _homeVm.isPageLoaded == true
+            child: _invaderDetailsVm.isPageLoaded == true
                 ? Container(
                     height: _size.height,
                     child: SingleChildScrollView(
@@ -60,7 +62,15 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                     MediaQuery.of(context).size.height * 0.025),
                             FloatingActionButton.extended(
                                 onPressed: networkPreferences.networkStatus
-                                    ? () {}
+                                    ? () {
+                                        customDialog.showDialog(
+                                            context,
+                                            'Reporting invader',
+                                            'Are you sure you want to report ' +
+                                                widget.selectedPeople.name!);
+                                        // _invaderDetailsVm.reportInvader(
+                                        //     widget.selectedPeople);
+                                      }
                                     : () {
                                         toastWidgetService.showToast(
                                             'You must switch to online mode for reporting');

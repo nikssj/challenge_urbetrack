@@ -1,9 +1,9 @@
-// Flutter imports:
-import 'package:flutter/cupertino.dart';
-
 // Project imports:
+import 'dart:convert';
+
 import 'package:challenge_ubertrack/core/api_base_helper.dart';
 import 'package:challenge_ubertrack/pages/home/models/people_model.dart';
+import 'package:challenge_ubertrack/pages/invaders_details/models/invader_report_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/models/planet_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/models/starship_model.dart';
 import 'package:challenge_ubertrack/pages/invaders_details/models/vehicle_model.dart';
@@ -14,7 +14,7 @@ ApiBaseHelper _helper = ApiBaseHelper();
 
 class StarWarsRepository {
   Future<List<People>> getPeople() async {
-    final response = await _helper.get('/people');
+    final response = await _helper.get(null, '/people');
 
     List<People> peopleList;
 
@@ -24,7 +24,7 @@ class StarWarsRepository {
   }
 
   Future<Planet> getPlanet(String idPlanet) async {
-    final response = await _helper.get('/planets/' + idPlanet);
+    final response = await _helper.get(null, '/planets/' + idPlanet);
 
     Planet planet;
 
@@ -34,7 +34,7 @@ class StarWarsRepository {
   }
 
   Future<Vehicle> getVehicle(String idVehicle) async {
-    final response = await _helper.get('/vehicles/' + idVehicle);
+    final response = await _helper.get(null, '/vehicles/' + idVehicle);
 
     Vehicle vehicle;
 
@@ -44,12 +44,19 @@ class StarWarsRepository {
   }
 
   Future<Starship> getStarship(String idStarship) async {
-    final response = await _helper.get('/starships/' + idStarship);
+    final response = await _helper.get(null, '/starships/' + idStarship);
 
     Starship starship;
 
     starship = Starship.fromJson(response);
 
     return starship;
+  }
+
+  Future<dynamic> reportInvader(InvaderReport invaderReport) async {
+    final response = await _helper.post(
+        'https://jsonplaceholder.typicode.com/posts/', '', invaderReport);
+
+    return response;
   }
 }

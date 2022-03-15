@@ -58,9 +58,7 @@ class _HomePageState extends State<HomePage> {
                       ? starWarsPeople(context)
                       : Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            NetworkMessageCard(),
-                          ],
+                          children: [NetworkMessageCard()],
                         )
                   : CustomLoadingSpinner()),
             ),
@@ -117,20 +115,21 @@ Widget starWarsPeople(BuildContext context) {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                  'Gender: ' +
-                                      _homeVm.peopleList![index].gender!,
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18)),
+                                'Gender: ' + _homeVm.peopleList![index].gender!,
+                                style: TextStyle(
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
                               Text(
-                                  'Weight: ' +
-                                      _homeVm.peopleList![index].mass! +
-                                      'kg',
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18)),
+                                'Weight: ' +
+                                    _homeVm.peopleList![index].mass! +
+                                    'kg',
+                                style: TextStyle(
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
                             ],
                           ),
                         ),
