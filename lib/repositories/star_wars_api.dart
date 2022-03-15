@@ -13,8 +13,8 @@ final starWarsRepository = StarWarsRepository();
 ApiBaseHelper _helper = ApiBaseHelper();
 
 class StarWarsRepository {
-  Future<List<People>> getPeople(BuildContext context) async {
-    final response = await _helper.get('/people', context);
+  Future<List<People>> getPeople() async {
+    final response = await _helper.get('/people');
 
     List<People> peopleList;
 
@@ -23,8 +23,8 @@ class StarWarsRepository {
     return peopleList;
   }
 
-  Future<Planet> getPlanet(BuildContext context, String idPlanet) async {
-    final response = await _helper.get('/planets/' + idPlanet, context);
+  Future<Planet> getPlanet(String idPlanet) async {
+    final response = await _helper.get('/planets/' + idPlanet);
 
     Planet planet;
 
@@ -33,8 +33,8 @@ class StarWarsRepository {
     return planet;
   }
 
-  Future<Vehicle> getVehicle(BuildContext context, String idVehicle) async {
-    final response = await _helper.get('/vehicles/' + idVehicle, context);
+  Future<Vehicle> getVehicle(String idVehicle) async {
+    final response = await _helper.get('/vehicles/' + idVehicle);
 
     Vehicle vehicle;
 
@@ -43,8 +43,8 @@ class StarWarsRepository {
     return vehicle;
   }
 
-  Future<Starship> getStarship(BuildContext context, String idStarship) async {
-    final response = await _helper.get('/starships/' + idStarship, context);
+  Future<Starship> getStarship(String idStarship) async {
+    final response = await _helper.get('/starships/' + idStarship);
 
     Starship starship;
 

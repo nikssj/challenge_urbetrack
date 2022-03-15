@@ -17,7 +17,7 @@ Future<void> main() async {
   await hiveModule.initModule();
 
   //Network status offline when app launched
-  NetworkPreferences().networkStatus = false;
+  networkPreferences.networkStatus = false;
 
   runApp(MyApp());
 }

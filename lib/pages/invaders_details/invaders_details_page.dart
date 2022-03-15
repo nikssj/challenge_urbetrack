@@ -59,7 +59,7 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.025),
                             FloatingActionButton.extended(
-                                onPressed: NetworkPreferences().networkStatus
+                                onPressed: networkPreferences.networkStatus
                                     ? () {}
                                     : () {
                                         toastWidgetService.showToast(
@@ -73,7 +73,7 @@ class _InvadersDetailsPageState extends State<InvadersDetailsPage> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor:
-                                    NetworkPreferences().networkStatus
+                                    networkPreferences.networkStatus
                                         ? Colors.redAccent.shade700
                                         : Colors.white30),
                             SizedBox(height: _size.height * 0.025)

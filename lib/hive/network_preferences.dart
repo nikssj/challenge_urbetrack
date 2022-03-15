@@ -6,6 +6,8 @@ import 'package:challenge_ubertrack/hive/hive.dart';
 
 part 'network_preferences.g.dart';
 
+final networkPreferences = NetworkPreferences();
+
 @HiveType(typeId: 1)
 class NetworkPreferences {
   NetworkPreferences();

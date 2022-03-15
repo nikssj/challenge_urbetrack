@@ -48,7 +48,7 @@ class InvadersDetailsViewModel extends BaseModel {
     for (var vehicleLink in vehiclesLinks) {
       final String vehicleId = vehicleLink.substring(vehicleLink.length - 3);
 
-      listaFutures.add(starWarsRepository.getVehicle(context, vehicleId));
+      listaFutures.add(starWarsRepository.getVehicle(vehicleId));
     }
 
     // Wait for all futures to complete
@@ -67,7 +67,7 @@ class InvadersDetailsViewModel extends BaseModel {
       final String starshipId =
           starshipsLink.substring(starshipsLink.length - 3);
 
-      listaFutures.add(starWarsRepository.getStarship(context, starshipId));
+      listaFutures.add(starWarsRepository.getStarship(starshipId));
     }
 
     // Wait for all futures to complete
@@ -80,8 +80,7 @@ class InvadersDetailsViewModel extends BaseModel {
   Future<void> fetchHomeWorld(BuildContext context, String planetLink) async {
     final String idPlanet = planetLink.substring(planetLink.length - 3);
 
-    final Planet response =
-        await starWarsRepository.getPlanet(context, idPlanet);
+    final Planet response = await starWarsRepository.getPlanet(idPlanet);
 
     setHomeWorld = response;
   }

@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           appBar: CustomAppBar(
             titulo: 'List of threats',
             automaticallyImplyLeading: false,
-            leading: !NetworkPreferences().networkStatus
+            leading: !networkPreferences.networkStatus
                 ? SizedBox.shrink()
                 : Builder(
                     builder: (context) => IconButton(
@@ -50,11 +50,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
           ),
-          drawer: !NetworkPreferences().networkStatus ? null : SideBarWidget(),
+          drawer: !networkPreferences.networkStatus ? null : SideBarWidget(),
           body: BackgroundWidget(
             child: Center(
               child: (_homeVm.isPageLoaded == true
-                  ? NetworkPreferences().networkStatus
+                  ? networkPreferences.networkStatus
                       ? starWarsPeople(context)
                       : Column(
                           mainAxisAlignment: MainAxisAlignment.center,

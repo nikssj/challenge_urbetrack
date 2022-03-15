@@ -17,7 +17,7 @@ import 'exceptions.dart';
 class ApiBaseHelper {
   String baseUrl = EnvironmentConfiguration.URL_DEVELOP;
 
-  Future get(String url, BuildContext context) async {
+  Future get(String url) async {
     var responseJson;
 
     http.Response response;
@@ -29,7 +29,7 @@ class ApiBaseHelper {
           )
           .timeout(Duration(seconds: 30));
 
-      responseJson = _returnResponse(response, context);
+      responseJson = _returnResponse(response);
     } on SocketException {
       toastWidgetService.showToast('No internet connection');
       throw Exception('No Internet connection');
@@ -44,17 +44,40 @@ class ApiBaseHelper {
 
   //IMPLEMENT POST METHOD
 
+  Future post(String url) async {
+    var responseJson;
+
+    http.Response response;
+
+    try {
+      response = await http
+          .get(
+            Uri.parse(baseUrl + url),
+          )
+          .timeout(Duration(seconds: 30));
+
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      toastWidgetService.showToast('No internet connection');
+      throw Exception('No Internet connection');
+    } on TimeoutException {
+      toastWidgetService.showToast('Timeout error');
+      throw Exception('Timeout get');
+    } catch (e) {
+      throw (e);
+    }
+    return responseJson;
+  }
 }
 
-dynamic _returnResponse(http.Response response, BuildContext context) async {
+dynamic _returnResponse(http.Response response) async {
   switch (response.statusCode) {
     case 200:
       return json.decode(response.body.toString());
 
-    case 500:
-      return toastWidgetService.showToast(
-          'Ups! Ha ocurrido un error. Por favor comunicarse con el administrador');
     default:
+      toastWidgetService.showToast(
+          'Oops! An error has occurred. Please contact administration');
       throw FetchDataException(
           'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
   }

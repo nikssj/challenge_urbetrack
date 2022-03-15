@@ -32,7 +32,7 @@ class NetworkMessageCard extends StatelessWidget {
             SizedBox(height: _size.height * 0.05),
             FloatingActionButton.extended(
                 onPressed: () async {
-                  NetworkPreferences().networkStatus = true;
+                  networkPreferences.networkStatus = true;
 
                   await _homeVm.loadPage(context);
                 },

@@ -17,7 +17,7 @@ class HomePageViewModel extends BaseModel {
   List<People>? get peopleList => _peopleList;
 
   Future<void> fetchPeople(BuildContext context) async {
-    final response = await starWarsRepository.getPeople(context);
+    final response = await starWarsRepository.getPeople();
 
     setPeopleList = response;
   }
@@ -25,7 +25,7 @@ class HomePageViewModel extends BaseModel {
   Future<void> loadPage(BuildContext context) async {
     setIsPageLoaded(false);
 
-    if (NetworkPreferences().networkStatus) {
+    if (networkPreferences.networkStatus) {
       await fetchPeople(context);
     }
 

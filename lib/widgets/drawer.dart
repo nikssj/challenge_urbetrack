@@ -57,13 +57,13 @@ class SideBarWidget extends StatelessWidget {
                         text: 'Current network status: ',
                         style: TextStyle(color: Colors.white, fontSize: 20)),
                     TextSpan(
-                      text: NetworkPreferences().networkStatus
+                      text: networkPreferences.networkStatus
                           ? 'Online'
                           : 'Offline',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
-                          color: NetworkPreferences().networkStatus
+                          color: networkPreferences.networkStatus
                               ? Colors.green
                               : Colors.red),
                     ),
@@ -131,9 +131,9 @@ class SideBarWidget extends StatelessWidget {
     data.forEach((opt) {
       final widgetTemp = ListTile(
         onTap: () {
-          NetworkPreferences().networkStatus = opt['networkStatus'];
+          networkPreferences.networkStatus = opt['networkStatus'];
 
-          print(NetworkPreferences().networkStatus);
+          print(networkPreferences.networkStatus);
 
           toastWidgetService.showToast('Network is now: ' + opt['texto'] + '!');
 
