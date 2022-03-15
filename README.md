@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://nikssj.dev">
-    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/05/c4/13/05c413f1-a468-3900-ad88-89a193ce5c66/source/512x512bb.jpg" alt="Logo" width="80" height="80">
+    <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/05/c4/13/05c413f1-a468-3900-ad88-89a193ce5c66/source/512x512bb.jpg" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Prueba técnica para Asteroid Techs.</h3>
