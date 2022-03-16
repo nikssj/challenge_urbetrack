@@ -10,7 +10,7 @@
   <h3 align="center">Prueba técnica para Urbetrack.</h3>
 
   <p align="center">
-    ABM de incidentes hecho en Flutter v2.0.5
+    Reporte de invasores de Starwars desarrollado en Flutter
     <br /> <br />
     <a href="https://drive.google.com/file/d/1bECkczM8-IVokGYCaInzmt9HNcCDc8hj/view?usp=sharing">Descargar APK para Android</a>
   </p>
