@@ -35,6 +35,8 @@ Prueba técnica para Urbetrack. El proyecto consiste en un reporte de invasores 
 * Patrón de arquitectura MVC aplicando Provider como State Management
 * [BETA: Starwars in the web!](https://urbetrack-starwars.web.app) A modo demostrativo, se deployó una versión PWA del proyecto <b>para ser ejecutada en celulares</b>
 
+### Requisitos faltantes ( TO DO ):
+* Guardar la informacion de los invasores en el modo offline
 
 ## Acerca del desarrollo
 
