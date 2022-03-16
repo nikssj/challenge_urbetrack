@@ -6,23 +6,12 @@
     <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/05/c4/13/05c413f1-a468-3900-ad88-89a193ce5c66/source/512x512bb.jpg" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">Prueba técnica para Asteroid Techs.</h3>
+  <h3 align="center">Prueba técnica para Urbetrack.</h3>
 
   <p align="center">
     ABM de incidentes hecho en Flutter v2.0.5
     <br /> <br />
     <a href="https://drive.google.com/file/d/1bECkczM8-IVokGYCaInzmt9HNcCDc8hj/view?usp=sharing">Descargar APK para Android</a>
-    <br />
-    <a href="https://drive.google.com/file/d/1agSN5i1AZ-JPXQ5i420YoXjYWwSidvih/view?usp=sharing">Descargar GoogleServices.json</a>
-    <br />
-     <br />
-      <br />
-  <b>Datos de prueba </b>
-      <br />
-      <b>User:</b> asteroid@tech.com
-       <br />
-       <b>Password:</b> 123456
-        <br />
   </p>
 </p>
 
@@ -32,28 +21,28 @@
 ## Acerca del proyecto
 
 
-Prueba técnica para Asteroid Technologies. El proyecto consiste en un ABM (Alta, Baja, Modificación) de incidentes. Posee un sistema de autenticación y base de datos, ambos alojados en Firebase. Además, permite acceder a funciones nativas como cargar fotos desde la galería y cámara.  
+Prueba técnica para Urbetrack. El proyecto consiste en un reporte de invasores basado en Starwars.
 
 
 ### Puntos importantes a considerar:
 * Diseños responsive a distintos tamaños de dispositivos (Only mobile en orientación vertical)
 * Patrón de arquitectura MVC aplicando Provider como State Management
-* [BETA: Asteroid in the web!](https://nik-asteroid-test.web.app) A modo demostrativo, se deployó una versión PWA del proyecto <b>para ser ejecutada en celulares</b> (Faltan retoques, por ej:<b> No se puede subir fotos vía web</b>)
+* [BETA: Starwars in the web!](https://urbetrack-starwars.web.app) A modo demostrativo, se deployó una versión PWA del proyecto <b>para ser ejecutada en celulares</b>
 
 
 ## Acerca del desarrollo
 
-El proyecto se desarrolló con la última versión Stable disponible de Flutter.
+El proyecto se desarrolló con la versión Stable V2.0.5 de Flutter.
 
 * [Flutter v2.0.5](https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_2.0.5-stable.zip)
 
 
 <!-- ACKNOWLEDGEMENTS -->
-### Paquetes interesantes utilizados en el proyecto
-* [Provider](https://pub.dev/packages/provider)
+### Algunos paquetes interesantes utilizados en el proyecto
+* [State Management Provider](https://pub.dev/packages/provider)
 * [Animate do](https://pub.dev/packages/animate_do)
-* [Firebase core](https://pub.dev/packages/firebase_core)
-* [Firebase auth](https://pub.dev/packages/firebase_auth)
+* [Animated text kit](https://pub.dev/packages/animated_text_kit)
+* [Hive](https://pub.dev/packages/hive)
 * [Get](https://pub.dev/packages/get)
 
 
@@ -76,7 +65,7 @@ Seguir las instrucciones de instalación en su página oficial
 
 1. Clonar el repositorio
    ```sh
-   git clone https://github.com/nikssj/nik-asteroid-test
+   git clone https://github.com/nikssj/challenge_ubertrack
    ```
 2. Ejecutar el comando flutter pub get para descargar las dependencias del proyecto
    ```sh
@@ -91,7 +80,7 @@ Seguir las instrucciones de instalación en su página oficial
 
 
 ### Login
-[![Login Gif][gif-login]](https://nikssj.dev)
+[![Banner][banner](https://nikssj.dev)
 
 ### Creación de incidente
 [![Creacion Gif][gif-creacion]](https://nikssj.dev)
@@ -112,6 +101,7 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-url]: https://linkedin.com/in/nikssj
+[banner]: assets/presentation/banner.jpg
 [gif-login]: images/gif/login_gif.gif
 [gif-creacion]: images/gif/creacion_gif.gif
 [gif-borrado]: images/gif/borrado_gif.gif
