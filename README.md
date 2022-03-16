@@ -6,7 +6,6 @@
     <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/05/c4/13/05c413f1-a468-3900-ad88-89a193ce5c66/source/512x512bb.jpg" alt="Logo" width="120" height="120">
   </a>
   
-
   <h3 align="center">Prueba técnica para Urbetrack.</h3>
 
   <p align="center">
@@ -14,12 +13,15 @@
     <br /> <br />
     <a href="https://drive.google.com/file/d/1bECkczM8-IVokGYCaInzmt9HNcCDc8hj/view?usp=sharing">Descargar APK para Android</a>
   </p>
-</p>
+  
+<br />
+<br />
 
   <p align="center">
   <a href="https://i.imgur.com/owA0SsC.jpeg">
     <img src="https://i.imgur.com/owA0SsC.jpeg" alt="Banner" width="1000" height="600">
   </a>
+</p>
 
 <!-- ABOUT THE PROJECT -->
 ## Acerca del proyecto
@@ -78,7 +80,6 @@ Seguir las instrucciones de instalación en su página oficial
 3. Ejecutar el proyecto. En caso de usar VSCODE, se puede ejecutar presionando F5, conectando previamente un dispositivo Android con modo USB Debugger activado.
 
 
-
 <!-- Screenshots -->
 ## Screenshots
 
@@ -92,8 +93,8 @@ Seguir las instrucciones de instalación en su página oficial
 ### Reporte de invasor y network switch modes
 [![Invader report][invader-report]](https://nikssj.dev)
 
-### BETA: [Starwars in the web!](https://nik-asteroid-test.web.app)
-[![Web Gif][gif-web]](https://nik-asteroid-test.web.app)
+### BETA: [Starwars in the web!](https://urbetrack-starwars.web.app/)
+[![Web Gif][gif-web]](https://urbetrack-starwars.web.app/)
 
 
 <!-- CONTACT -->
