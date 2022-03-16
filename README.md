@@ -83,14 +83,14 @@ Seguir las instrucciones de instalación en su página oficial
 ## Screenshots
 
 
-### Login
-[![Banner][banner](https://nikssj.dev)
+### Intro
+[![Intro][intro](https://nikssj.dev)
 
-### Creación de incidente
-[![Creacion Gif][gif-creacion]](https://nikssj.dev)
+### Listado de invasores
+[![Invader Details][invader-details]](https://nikssj.dev)
 
-### Búsqueda y borrado de incidente
-[![Borrado Gif][gif-borrado]](https://nikssj.dev)
+### Reporte de invasor y network switch modes
+[![Invader report][invader-report]](https://nikssj.dev)
 
 ### BETA: [Asteroid in the web!](https://nik-asteroid-test.web.app)
 [![Web Gif][gif-web]](https://nik-asteroid-test.web.app)
@@ -105,9 +105,8 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-url]: https://linkedin.com/in/nikssj
-[banner]: assets/presentation/banner.jpg
-[gif-login]: images/gif/login_gif.gif
-[gif-creacion]: images/gif/creacion_gif.gif
-[gif-borrado]: images/gif/borrado_gif.gif
+[intro]: assets/presentation/intro.gif
+[invader-details]: assets/presentation/invader_details.gif
+[invader-report]: assets/presentation/invader_report.gif
 [gif-web]: images/gif/web_gif.gif
 
