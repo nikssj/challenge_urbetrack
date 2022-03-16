@@ -36,7 +36,7 @@ Prueba técnica para Urbetrack. El proyecto consiste en un reporte de invasores 
 * [BETA: Starwars in the web!](https://urbetrack-starwars.web.app) A modo demostrativo, se deployó una versión PWA del proyecto <b>para ser ejecutada en celulares</b>
 
 
-### Acerca del desarrollo
+## Acerca del desarrollo
 
 El proyecto se desarrolló con la versión Stable V2.0.5 de Flutter.
 
@@ -44,7 +44,7 @@ El proyecto se desarrolló con la versión Stable V2.0.5 de Flutter.
 
 
 <!-- ACKNOWLEDGEMENTS -->
-### Algunos paquetes interesantes utilizados en el proyecto
+## Algunos paquetes interesantes utilizados en el proyecto
 * [State Management Provider](https://pub.dev/packages/provider)
 * [Animate do](https://pub.dev/packages/animate_do)
 * [Animated text kit](https://pub.dev/packages/animated_text_kit)
