@@ -80,7 +80,7 @@ Seguir las instrucciones de instalación en su página oficial
 
 
 ### Login
-[![Login Gif][gif-login]](https://nikssj.dev)
+[![Banner][banner](https://nikssj.dev)
 
 ### Creación de incidente
 [![Creacion Gif][gif-creacion]](https://nikssj.dev)
@@ -101,6 +101,7 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-url]: https://linkedin.com/in/nikssj
+[banner]: assets/presentation/banner.jpg
 [gif-login]: images/gif/login_gif.gif
 [gif-creacion]: images/gif/creacion_gif.gif
 [gif-borrado]: images/gif/borrado_gif.gif
