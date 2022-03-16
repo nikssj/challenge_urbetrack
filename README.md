@@ -20,6 +20,7 @@
   <a href="https://i.imgur.com/owA0SsC.jpeg">
     <img src="https://i.imgur.com/owA0SsC.jpeg" alt="Banner" width="1000" height="600">
   </a>
+</p>
 
 <!-- ABOUT THE PROJECT -->
 ## Acerca del proyecto
@@ -110,4 +111,3 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 [invader-report]: assets/presentation/invader_report.gif
 [gif-web]: assets/presentation/starwars_web.gif
 
-</p>
