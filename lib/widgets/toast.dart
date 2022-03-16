@@ -14,7 +14,7 @@ class ToastWidgetService {
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
+        timeInSecForIosWeb: 3,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0);
