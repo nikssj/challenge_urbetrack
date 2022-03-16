@@ -92,7 +92,7 @@ Seguir las instrucciones de instalación en su página oficial
 ### Reporte de invasor y network switch modes
 [![Invader report][invader-report]](https://nikssj.dev)
 
-### BETA: [Asteroid in the web!](https://nik-asteroid-test.web.app)
+### BETA: [Starwars in the web!](https://nik-asteroid-test.web.app)
 [![Web Gif][gif-web]](https://nik-asteroid-test.web.app)
 
 
@@ -108,5 +108,5 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 [intro]: assets/presentation/intro.gif
 [invader-details]: assets/presentation/invader_details.gif
 [invader-report]: assets/presentation/invader_report.gif
-[gif-web]: images/gif/web_gif.gif
+[gif-web]: assets/presentation/starwars_web.gif
 
