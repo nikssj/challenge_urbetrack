@@ -18,7 +18,7 @@
 
   <p align="center">
   <a href="https://nikssj.dev">
-    <img src="https://i.imgur.com/owA0SsC.jpeg" alt="Banner" width="500" height="500">
+    <img src="https://i.imgur.com/owA0SsC.jpeg" alt="Banner" width="800" height="800">
   </a>
 
 <!-- ABOUT THE PROJECT -->
