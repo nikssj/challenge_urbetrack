@@ -1,5 +1,5 @@
 class EnvironmentConfiguration {
-  static const URL_DEVELOP = 'http://swapi.dev/api';
+  static const URL_DEVELOP = 'https://swapi.dev/api';
 
   //IMPLEMENT TESTING & PRODUCTION URLs HERE
 }
