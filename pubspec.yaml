@@ -39,7 +39,7 @@ dependencies:
   hive: 2.0.6
   hive_flutter: 1.1.0
   fluttertoast: 8.0.8
-  url_launcher: 5.4.1
+  url_launcher: ^6.0.10
   import_sorter: 4.6.0
   flutter_animated_dialog: ^2.0.1
 
