@@ -84,7 +84,7 @@ Seguir las instrucciones de instalación en su página oficial
 
 
 ### Intro
-[![Intro][intro](https://nikssj.dev)
+[![Intro][intro]](https://nikssj.dev)
 
 ### Listado de invasores
 [![Invader Details][invader-details]](https://nikssj.dev)
