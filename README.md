@@ -78,7 +78,7 @@ Seguir las instrucciones de instalación en su página oficial
 3. Ejecutar el proyecto. En caso de usar VSCODE, se puede ejecutar presionando F5, conectando previamente un dispositivo Android con modo USB Debugger activado.
 
 
-
+<p align="center">
 <!-- Screenshots -->
 ## Screenshots
 
@@ -92,8 +92,8 @@ Seguir las instrucciones de instalación en su página oficial
 ### Reporte de invasor y network switch modes
 [![Invader report][invader-report]](https://nikssj.dev)
 
-### BETA: [Starwars in the web!](https://nik-asteroid-test.web.app)
-[![Web Gif][gif-web]](https://nik-asteroid-test.web.app)
+### BETA: [Starwars in the web!](https://urbetrack-starwars.web.app/)
+[![Web Gif][gif-web]](https://urbetrack-starwars.web.app/)
 
 
 <!-- CONTACT -->
@@ -110,3 +110,4 @@ Nicolás Aybar - [Portfolio](https://nikssj.dev) - naybar.dev@gmail.com
 [invader-report]: assets/presentation/invader_report.gif
 [gif-web]: assets/presentation/starwars_web.gif
 
+</p>
