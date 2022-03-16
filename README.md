@@ -79,7 +79,6 @@ Seguir las instrucciones de instalación en su página oficial
 3. Ejecutar el proyecto. En caso de usar VSCODE, se puede ejecutar presionando F5, conectando previamente un dispositivo Android con modo USB Debugger activado.
 
 
-<p align="center">
 <!-- Screenshots -->
 ## Screenshots
 
