@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:challenge_ubertrack/widgets/custom_dialog.dart';
-import 'package:dialogs/dialogs/choice_dialog.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:

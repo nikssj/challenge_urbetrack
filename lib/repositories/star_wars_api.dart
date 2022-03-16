@@ -1,5 +1,4 @@
 // Project imports:
-import 'dart:convert';
 
 import 'package:challenge_ubertrack/core/api_base_helper.dart';
 import 'package:challenge_ubertrack/pages/home/models/people_model.dart';

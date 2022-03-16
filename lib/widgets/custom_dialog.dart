@@ -46,7 +46,7 @@ class CustomDialog {
           ],
         );
       },
-      animationType: DialogTransitionType.size,
+      animationType: DialogTransitionType.scale,
       curve: Curves.fastOutSlowIn,
       duration: Duration(seconds: 1),
     );

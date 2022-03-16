@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           navigatorKey: Get.key,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(fontFamily: 'Hubballi'),
-          home: HomePage()),
+          home: IntroPage()),
     );
   }
 }

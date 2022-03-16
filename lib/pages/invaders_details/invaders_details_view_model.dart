@@ -103,7 +103,6 @@ class InvadersDetailsViewModel extends BaseModel {
 
     final response = await starWarsRepository.reportInvader(newInvaderReport);
 
-    print(response);
     if (response != null) {
       toastWidgetService.showToast('Invader has been reported!');
     }
