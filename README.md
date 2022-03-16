@@ -71,7 +71,7 @@ Seguir las instrucciones de instalación en su página oficial
 
 1. Clonar el repositorio
    ```sh
-   git clone https://github.com/nikssj/challenge_ubertrack
+   git clone https://github.com/nikssj/challenge_urbetrack
    ```
 2. Ejecutar el comando flutter pub get para descargar las dependencias del proyecto
    ```sh
