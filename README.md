@@ -17,7 +17,7 @@
 </p>
 
   <p align="center">
-  <a href="https://nikssj.dev">
+  <a href="https://i.imgur.com/owA0SsC.jpeg">
     <img src="https://i.imgur.com/owA0SsC.jpeg" alt="Banner" width="1000" height="600">
   </a>
 
